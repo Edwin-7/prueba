@@ -1,0 +1,103 @@
+
+//Vars's
+
+ $phone:    768px;   //  menor 768px
+ $tablet:   992px;   //  matyor igual 992px
+ $descktop: 1200px; // mayor igual 1200px
+ 
+ 
+ // ************** Media query Tipography ********************//
+
+@mixin media-font($valor) {
+  
+	// para Moviles
+
+  @media (min-width: 0px) and (max-width: $phone){
+
+  	 font-size: $valor * 80 / 100 ;
+  }
+
+  // para tablets
+
+  @media (min-width: $phone) and (max-width: $tablet){
+
+  	 font-size: $valor * 90 / 100;
+  }
+
+  // para pc
+  
+  @media (min-width: $tablet) and (max-width: $descktop){
+
+  	 font-size: $valor;
+  }
+
+  // pantallas mas grandes
+
+  @media (min-width: $descktop){
+
+  	 font-size: $valor + ($valor * 20 / 100);
+  }
+
+
+
+}
+
+
+// ******************** Mediaqueries Elemntos *********************//
+
+@mixin movil{
+  @media (min-width: 0px) and (max-width: $phone){
+
+     @content
+  }
+}
+
+@mixin tablet{
+   @media (min-width: $phone) and (max-width: $tablet){
+
+     @content
+  }
+}
+
+@mixin descktop{
+   @media (min-width: $tablet) and (max-width: $descktop){
+
+     @content
+  }
+}
+
+@mixin descktop-large{
+  @media (min-width: $descktop){
+
+     @content
+  }
+}
+
+//******************** Normalizar elemntos en los diferentes navegadores ********************//
+
+@mixin normalize($property, $valor){
+
+	-webkit-#{$property}: $valor;
+	-moz-#{$property}: $valor;
+	-ms-#{$property}: $valor;
+	-o-#{$property}: $valor;
+	#{$property}:  $valor;
+}
+
+
+//******************** Nombramiento BEM ********************//
+
+@mixin e($element) {
+    &__#{$element} {
+        @content;
+    }
+}
+
+//******************** Modificador BEM ********************//
+
+@mixin e($element) {
+    &--#{$element} {
+        @content;
+    }
+}
+

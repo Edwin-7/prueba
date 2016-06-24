@@ -1,0 +1,25 @@
+
+// La base se calculala segun la el tamaño para descktop
+
+$title: 30px;
+$subtitle: 22px;
+$paragraph: 16px;
+
+
+h2{
+	@include media-font($title);
+	color: $title-color
+}
+
+h3{
+	@include media-font($subtitle);
+	color: $subtitle-color
+	
+}
+
+p{
+	@include media-font($paragraph);
+	color: $paragraph-color
+	
+}
+
